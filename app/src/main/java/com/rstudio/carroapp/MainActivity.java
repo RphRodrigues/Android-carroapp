@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name = findViewById(R.id.nomeCarroId);
-        brand = findViewById(R.id.marcaId);
-        model = findViewById(R.id.modeloId);
-        speedometer = findViewById(R.id.velocimetroId);
+        name = findViewById(R.id.carNameId);
+        brand = findViewById(R.id.brandId);
+        model = findViewById(R.id.modelId);
+        speedometer = findViewById(R.id.speedometerId);
         stop = findViewById(R.id.btnStopId);
         turbo = findViewById(R.id.btnTurboId);
         criarCarro = findViewById(R.id.btnCriarCarro);
