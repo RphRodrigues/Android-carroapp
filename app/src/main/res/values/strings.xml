@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Car</string>
+    <string name="speedometer">Speedometer:</string>
+    <string name="Car_model">Car model</string>
+    <string name="Car_brand">Car brand</string>
+    <string name="Create_car">Create car</string>
+    <string name="Car_name">Car name</string>
+    <string name="stop">Stop</string>
+    <string name="turbo">Turbo</string>
+    <string name="Break">Break</string>
+    <string name="speedUp">Speed up</string>
+</resources>
