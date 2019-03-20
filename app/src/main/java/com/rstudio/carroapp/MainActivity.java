@@ -18,6 +18,22 @@ public class MainActivity extends AppCompatActivity {
     Random random = new Random();
     Integer currentImg = 0;
 
+    String[] carNames = {
+            "Mercedes",
+            "Zodiac",
+            "Ford GT",
+            "Corsair",
+            "Mustang",
+            "Mercury Cougar",
+            "Lincoln Continental"
+    };
+
+    String[] carBrands = {
+            "Mercedes-Benz",
+            "Ford Motor Company",
+            "Lincoln"
+    };
+
     private EditText name;
     private EditText brand;
     private EditText model;
@@ -44,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
         speedUp = findViewById(R.id.btnAcelerarId);
         brake = findViewById(R.id.btnFrearId);
         img = findViewById(R.id.imageId);
+
+        name.setText(carNames[0]);
+        brand.setText(carBrands[0]);
 
         criarCarro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,5 +197,31 @@ public class MainActivity extends AppCompatActivity {
             drawable = getResources().getDrawable(R.drawable.lincoln_continental);
         }
         img.setImageDrawable(drawable);
+        setCarDetails(nextImg);
+    }
+
+    private void setCarDetails(int pos) {
+        if (pos == 0) {
+            name.setText(carNames[0]);
+            brand.setText(carBrands[0]);
+        } else if (pos == 1) {
+            name.setText(carNames[1]);
+            brand.setText(carBrands[1]);
+        } else if (pos == 2) {
+            name.setText(carNames[2]);
+            brand.setText(carBrands[1]);
+        } else if (pos == 3) {
+            name.setText(carNames[3]);
+            brand.setText(carBrands[1]);
+        } else if (pos == 4) {
+            name.setText(carNames[4]);
+            brand.setText(carBrands[1]);
+        } else if (pos == 5) {
+            name.setText(carNames[5]);
+            brand.setText(carBrands[1]);
+        } else {
+            name.setText(carNames[6]);
+            brand.setText(carBrands[2]);
+        }
     }
 }
