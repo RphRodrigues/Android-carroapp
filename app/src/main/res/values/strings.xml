@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Car</string>
+    <string name="app_name">Car App</string>
     <string name="speedometer">Speedometer:</string>
     <string name="Car_model">Car model</string>
     <string name="Car_brand">Car brand</string>
