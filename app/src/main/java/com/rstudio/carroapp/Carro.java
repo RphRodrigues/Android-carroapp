@@ -5,6 +5,7 @@ public class Carro {
     private String marca;
     private String modelo;
     private Double velocidade;
+    private Byte marcha;
 
     public Carro() {
         this.velocidade = 0d;
@@ -88,5 +89,13 @@ public class Carro {
 
     public void setVelocidade(Double velocidade) {
         this.velocidade = velocidade;
+    }
+
+    public Byte getMarcha() {
+        return marcha;
+    }
+
+    public void setMarcha(Byte marcha) {
+        this.marcha = marcha;
     }
 }
