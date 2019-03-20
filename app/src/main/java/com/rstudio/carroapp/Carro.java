@@ -9,6 +9,7 @@ public class Carro {
 
     public Carro() {
         this.velocidade = 0d;
+        this.marcha = 0;
     }
 
     public Carro(String name, String marca, String modelo) {
