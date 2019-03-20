@@ -23,6 +23,7 @@ public class Carro {
         if (this.getVelocidade() <= 90.0) {
             do {
                 this.setVelocidade(this.getVelocidade() + 10);
+                mudarMarcha();
             } while (this.getVelocidade() <= 90.0);
             return true;
         } else {
@@ -34,6 +35,7 @@ public class Carro {
         if (this.getVelocidade() > 0) {
             do {
                 this.setVelocidade(this.getVelocidade() - 10);
+                mudarMarcha();
             } while (this.getVelocidade() > 0);
             return true;
         } else {
@@ -44,6 +46,7 @@ public class Carro {
     public Boolean speedUp() {
         if (this.getVelocidade() < 100) {
             this.setVelocidade(this.getVelocidade() + 10);
+            mudarMarcha();
             return true;
         } else {
             return false;
@@ -53,10 +56,25 @@ public class Carro {
     public Boolean brake() {
         if (this.getVelocidade() > 0) {
             this.setVelocidade(this.getVelocidade() - 10);
+            mudarMarcha();
             return true;
         } else {
             this.setVelocidade(0d);
             return false;
+        }
+    }
+
+    private void mudarMarcha() {
+        if (this.getMarcha() != 0 && this.getMarcha() <= 20) {
+            this.setMarcha((byte) 1);
+        } else if (this.getMarcha() > 20 && this.getMarcha() <= 40) {
+            this.setMarcha((byte) 2);
+        } else if (this.getMarcha() > 40 && this.getMarcha() <= 60) {
+            this.setMarcha((byte) 3);
+        } else if (this.getMarcha() > 60 && this.getMarcha() <= 80) {
+            this.setMarcha((byte) 4);
+        } else {
+            this.setMarcha((byte) 5);
         }
     }
 
