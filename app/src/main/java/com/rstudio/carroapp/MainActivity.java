@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (position == 2) {
                     drawable = getResources().getDrawable(R.drawable.mercedes);
                 } else {
-                    drawable = getResources().getDrawable(R.drawable.Lincoln_continental);
+                    drawable = getResources().getDrawable(R.drawable.lincoln_continental);
                 }
                 img.setImageDrawable(drawable);
             }
