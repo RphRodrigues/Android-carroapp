@@ -1,5 +1,6 @@
 package com.rstudio.carroapp;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -135,6 +138,28 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Enter the car data",
                             Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Random random = new Random();
+                Integer position = random.nextInt(4);
+
+                Drawable drawable;
+
+                if (position == 0) {
+                    drawable = getResources().getDrawable(R.drawable.ford_gt);
+                } else if (position == 1) {
+                    drawable = getResources().getDrawable(R.drawable.ford_zodiac);
+                } else if (position == 2) {
+                    drawable = getResources().getDrawable(R.drawable.mercedes);
+                } else {
+                    drawable = getResources().getDrawable(R.drawable.Lincoln_continental);
+                }
+                img.setImageDrawable(drawable);
             }
         });
     }
