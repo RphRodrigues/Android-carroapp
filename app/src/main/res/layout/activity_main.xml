@@ -34,6 +34,7 @@
         android:id="@+id/imageId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="imgClick"
         android:visibility="visible"
         app:srcCompat="@drawable/mercedes" />
 

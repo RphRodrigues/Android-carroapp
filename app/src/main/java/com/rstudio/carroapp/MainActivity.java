@@ -15,6 +15,9 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     Carro car = null;
+    Random random = new Random();
+    Integer currentImg = 0;
+
     private EditText name;
     private EditText brand;
     private EditText model;
@@ -140,27 +143,35 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    public void imgClick(View view) {
 
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Random random = new Random();
-                Integer position = random.nextInt(4);
+        Drawable drawable;
+        int nextImg = random.nextInt(7);
 
-                Drawable drawable;
+        if (currentImg == nextImg) {
+            do {
+                nextImg = random.nextInt(4);
+            } while (currentImg == nextImg);
+        }
+        currentImg = nextImg;
 
-                if (position == 0) {
-                    drawable = getResources().getDrawable(R.drawable.ford_gt);
-                } else if (position == 1) {
-                    drawable = getResources().getDrawable(R.drawable.ford_zodiac);
-                } else if (position == 2) {
-                    drawable = getResources().getDrawable(R.drawable.mercedes);
-                } else {
-                    drawable = getResources().getDrawable(R.drawable.lincoln_continental);
-                }
-                img.setImageDrawable(drawable);
-            }
-        });
+        if (nextImg == 0) {
+            drawable = getResources().getDrawable(R.drawable.mercedes);
+        } else if (nextImg == 1) {
+            drawable = getResources().getDrawable(R.drawable.ford_zodiac);
+        } else if (nextImg == 2) {
+            drawable = getResources().getDrawable(R.drawable.ford_gt);
+        } else if (nextImg == 3) {
+            drawable = getResources().getDrawable(R.drawable.ford_corsair_with_boat);
+        } else if (nextImg == 4) {
+            drawable = getResources().getDrawable(R.drawable.ford_mustang_fastback);
+        } else if (nextImg == 5) {
+            drawable = getResources().getDrawable(R.drawable.mercury_cougar);
+        } else {
+            drawable = getResources().getDrawable(R.drawable.lincoln_continental);
+        }
+        img.setImageDrawable(drawable);
     }
 }
