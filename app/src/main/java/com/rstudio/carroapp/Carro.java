@@ -65,13 +65,15 @@ public class Carro {
     }
 
     private void mudarMarcha() {
-        if (this.getMarcha() != 0 && this.getMarcha() <= 20) {
+        if (this.velocidade == 0) {
+            this.setMarcha((byte) 0);
+        } else if (this.getVelocidade() <= 20) {
             this.setMarcha((byte) 1);
-        } else if (this.getMarcha() > 20 && this.getMarcha() <= 40) {
+        } else if (this.getVelocidade() > 20 && this.getVelocidade() <= 40) {
             this.setMarcha((byte) 2);
-        } else if (this.getMarcha() > 40 && this.getMarcha() <= 60) {
+        } else if (this.getVelocidade() > 40 && this.getVelocidade() <= 60) {
             this.setMarcha((byte) 3);
-        } else if (this.getMarcha() > 60 && this.getMarcha() <= 80) {
+        } else if (this.getVelocidade() > 60 && this.getVelocidade() <= 80) {
             this.setMarcha((byte) 4);
         } else {
             this.setMarcha((byte) 5);
