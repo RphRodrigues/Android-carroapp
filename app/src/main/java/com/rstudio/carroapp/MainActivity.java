@@ -68,23 +68,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (car == null) {
-                    if (!name.getText().toString().isEmpty()) {
-                        car = new Carro();
-                        car.setName(name.getText().toString());
-                        car.setMarca(brand.getText().toString());
-                        car.setModelo(model.getText().toString());
+                    car = new Carro();
+                    car.setName(name.getText().toString());
+                    car.setMarca(brand.getText().toString());
+                    car.setModelo(model.getText().toString());
 
-                        Toast.makeText(getBaseContext(), "Car created successfully",
-                                Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Car created successfully",
+                            Toast.LENGTH_LONG).show();
 
-                        speedometer.setText(R.string.speedometer);
-                        speedometer.append(" " + car.getVelocidade() + "                                               " +
-                                "Marcha: " + car.getMarcha());
-                        speedometer.setVisibility(View.VISIBLE);
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Car name is empty",
-                                Toast.LENGTH_SHORT).show();
-                    }
+                    speedometer.setText(R.string.speedometer);
+                    speedometer.append(" " + car.getVelocidade() + "                                               " +
+                            "Marcha: " + car.getMarcha());
+                    speedometer.setVisibility(View.VISIBLE);
                 } else {
                     Toast.makeText(MainActivity.this, "The car " + car.getName() +
                             " has already been created", Toast.LENGTH_SHORT).show();
