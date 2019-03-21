@@ -1,7 +1,9 @@
 package com.rstudio.carroapp;
 
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -80,9 +82,12 @@ public class MainActivity extends AppCompatActivity {
                     speedometer.append(" " + car.getVelocidade() + "                                               " +
                             "Marcha: " + car.getMarcha());
                     speedometer.setVisibility(View.VISIBLE);
+
+                    criarCarro.setText(R.string.delete_car);
                 } else {
-                    Toast.makeText(MainActivity.this, "The car " + car.getName() +
-                            " has already been created", Toast.LENGTH_SHORT).show();
+                    deleteCar();
+//                    Toast.makeText(MainActivity.this, "The car " + car.getName() +
+//                            " has already been created", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -162,6 +167,29 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void deleteCar() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Warning")
+                .setIcon(R.mipmap.ic_warning)
+                .setMessage("Do you want to delete the " + car.getName() + " car?")
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        return;
+                    }
+                })
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        car = null;
+                        criarCarro.setText(R.string.Create_car);
+                        speedometer.setVisibility(View.INVISIBLE);
+                    }
+                })
+                .create()
+                .show();
     }
 
     public void imgClick(View view) {
