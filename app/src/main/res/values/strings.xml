@@ -1,13 +1,21 @@
 <resources>
     <string name="app_name">Car App</string>
-    <string name="speedometer">Speedometer:</string>
-    <string name="Car_model">Car model</string>
-    <string name="Car_brand">Car brand</string>
-    <string name="Create_car">Create car</string>
-    <string name="Car_name">Car name</string>
-    <string name="stop">Stop</string>
+    <string name="speedometer">Velocímetro:</string>
+    <string name="Car_model">Modelo do carro</string>
+    <string name="Car_brand">Marca do carro</string>
+    <string name="Create_car">Criar carro</string>
+    <string name="Car_name">Nome do carro</string>
+    <string name="stop">Parar</string>
     <string name="turbo">Turbo</string>
-    <string name="Break">Break</string>
-    <string name="speedUp">Speed up</string>
-    <string name="delete_car">Delete car</string>
+    <string name="Break">Frear</string>
+    <string name="speedUp">Acelerar</string>
+    <string name="delete_car">Deletar carro</string>
+    <string name="marcha">Marcha:</string>
+    <string name="car_created_successfully">Carro criado com sucesso</string>
+    <string name="the_car_is_at_full_speed">O carro está na velocidade máxima</string>
+    <string name="create_a_car">Crie um carro</string>
+    <string name="the_car_is_stopped">O carro está parado</string>
+    <string name="warning">Aviso</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
 </resources>
