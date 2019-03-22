@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText brand;
     private EditText model;
     private TextView speedometer;
+    private TextView marcha;
     private Button stop;
     private Button turbo;
     private Button criarCarro;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         speedUp = findViewById(R.id.btnAcelerarId);
         brake = findViewById(R.id.btnFrearId);
         img = findViewById(R.id.imageId);
+        marcha = findViewById(R.id.marchaId);
 
         name.setText(carNames[0]);
         brand.setText(carBrands[0]);
@@ -78,16 +80,14 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Car created successfully",
                             Toast.LENGTH_LONG).show();
 
-                    speedometer.setText(R.string.speedometer);
-                    speedometer.append(" " + car.getVelocidade() + "                                               " +
-                            "Marcha: " + car.getMarcha());
+                    speedometer.append(" " + car.getVelocidade());
+                    marcha.append(" " + car.getMarcha());
                     speedometer.setVisibility(View.VISIBLE);
+                    marcha.setVisibility(View.VISIBLE);
 
                     criarCarro.setText(R.string.delete_car);
                 } else {
                     deleteCar();
-//                    Toast.makeText(MainActivity.this, "The car " + car.getName() +
-//                            " has already been created", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -98,8 +98,9 @@ public class MainActivity extends AppCompatActivity {
                 if (car != null) {
                     if (car.turbo()) {
                         speedometer.setText(R.string.speedometer);
-                        speedometer.append(" " + car.getVelocidade() + "                                               " +
-                                "Marcha: " + car.getMarcha());
+                        speedometer.append(" " + car.getVelocidade());
+                        marcha.setText(R.string.marcha);
+                        marcha.append(" " + car.getMarcha());
                     } else {
                         Toast.makeText(getBaseContext(), "The car is at full speed",
                                 Toast.LENGTH_SHORT).show();
@@ -117,8 +118,9 @@ public class MainActivity extends AppCompatActivity {
                 if (car != null) {
                     if (car.stop()) {
                         speedometer.setText(R.string.speedometer);
-                        speedometer.append(" " + car.getVelocidade() + "                                               " +
-                                "Marcha: " + car.getMarcha());
+                        speedometer.append(" " + car.getVelocidade());
+                        marcha.setText(R.string.marcha);
+                        marcha.append(" " + car.getMarcha());
                     } else {
                         Toast.makeText(getBaseContext(), "The car is stopped",
                                 Toast.LENGTH_SHORT).show();
@@ -136,8 +138,9 @@ public class MainActivity extends AppCompatActivity {
                 if (car != null) {
                     if (car.brake()) {
                         speedometer.setText(R.string.speedometer);
-                        speedometer.append(" " + car.getVelocidade() + "                                               " +
-                                "Marcha: " + car.getMarcha());
+                        speedometer.append(" " + car.getVelocidade());
+                        marcha.setText(R.string.marcha);
+                        marcha.append(" " + car.getMarcha());
                     } else {
                         Toast.makeText(MainActivity.this, "The car is stopped",
                                 Toast.LENGTH_SHORT).show();
@@ -155,8 +158,9 @@ public class MainActivity extends AppCompatActivity {
                 if (car != null) {
                     if (car.speedUp()) {
                         speedometer.setText(R.string.speedometer);
-                        speedometer.append(" " + car.getVelocidade() + "                                               " +
-                                "Marcha: " + car.getMarcha());
+                        speedometer.append(" " + car.getVelocidade());
+                        marcha.setText(R.string.marcha);
+                        marcha.append(" " + car.getMarcha());
                     } else {
                         Toast.makeText(getBaseContext(), "The car is at full speed",
                                 Toast.LENGTH_SHORT).show();
