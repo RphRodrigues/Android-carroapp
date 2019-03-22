@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     car.setMarca(brand.getText().toString());
                     car.setModelo(model.getText().toString());
 
-                    Toast.makeText(getBaseContext(), "Car created successfully",
+                    Toast.makeText(getBaseContext(), R.string.car_created_successfully,
                             Toast.LENGTH_LONG).show();
 
                     speedometer.append(" " + car.getVelocidade());
@@ -102,11 +102,11 @@ public class MainActivity extends AppCompatActivity {
                         marcha.setText(R.string.marcha);
                         marcha.append(" " + car.getMarcha());
                     } else {
-                        Toast.makeText(getBaseContext(), "The car is at full speed",
+                        Toast.makeText(getBaseContext(), R.string.the_car_is_at_full_speed,
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getBaseContext(), "Enter the car data",
+                    Toast.makeText(getBaseContext(), R.string.create_a_car,
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -122,11 +122,11 @@ public class MainActivity extends AppCompatActivity {
                         marcha.setText(R.string.marcha);
                         marcha.append(" " + car.getMarcha());
                     } else {
-                        Toast.makeText(getBaseContext(), "The car is stopped",
+                        Toast.makeText(getBaseContext(), R.string.the_car_is_stopped,
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getBaseContext(), "Enter the car data",
+                    Toast.makeText(getBaseContext(), R.string.create_a_car,
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -142,11 +142,11 @@ public class MainActivity extends AppCompatActivity {
                         marcha.setText(R.string.marcha);
                         marcha.append(" " + car.getMarcha());
                     } else {
-                        Toast.makeText(MainActivity.this, "The car is stopped",
+                        Toast.makeText(MainActivity.this, R.string.the_car_is_stopped,
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getBaseContext(), "Enter the car data",
+                    Toast.makeText(getBaseContext(), R.string.create_a_car,
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -162,11 +162,11 @@ public class MainActivity extends AppCompatActivity {
                         marcha.setText(R.string.marcha);
                         marcha.append(" " + car.getMarcha());
                     } else {
-                        Toast.makeText(getBaseContext(), "The car is at full speed",
+                        Toast.makeText(getBaseContext(), R.string.the_car_is_at_full_speed,
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getBaseContext(), "Enter the car data",
+                    Toast.makeText(getBaseContext(), R.string.create_a_car,
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -175,19 +175,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void deleteCar() {
         new AlertDialog.Builder(MainActivity.this)
-                .setTitle("Warning")
+                .setTitle(R.string.warning)
                 .setIcon(R.mipmap.ic_warning)
-                .setMessage("Do you want to delete the " + car.getName() + " car?")
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                .setMessage("Deseja excluir o carro " + car.getName())
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         return;
                     }
                 })
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         car = null;
+                        speedometer.setText(R.string.speedometer);
+                        marcha.setText(R.string.marcha);
                         criarCarro.setText(R.string.Create_car);
                         speedometer.setVisibility(View.INVISIBLE);
                     }
