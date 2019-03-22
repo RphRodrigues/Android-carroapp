@@ -18,7 +18,7 @@
         android:id="@+id/brandId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
+        android:layout_marginTop="5sp"
         android:hint="@string/Car_brand"
         android:inputType="text" />
 
@@ -26,7 +26,7 @@
         android:id="@+id/modelId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
+        android:layout_marginTop="5sp"
         android:hint="@string/Car_model"
         android:inputType="text" />
 
@@ -72,12 +72,35 @@
         android:layout_marginTop="10sp"
         android:text="@string/turbo" />
 
-    <TextView
-        android:id="@+id/speedometerId"
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2sp"
-        android:text=""
-        android:visibility="invisible" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/speedometerId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="@string/speedometer"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/marchaId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:text="@string/marcha"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
