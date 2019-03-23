@@ -1,21 +1,22 @@
 <resources>
     <string name="app_name">Car App</string>
-    <string name="speedometer">Velocímetro:</string>
-    <string name="Car_model">Modelo do carro</string>
-    <string name="Car_brand">Marca do carro</string>
-    <string name="Create_car">Criar carro</string>
-    <string name="Car_name">Nome do carro</string>
-    <string name="stop">Parar</string>
+    <string name="velocimetro">Velocímetro:</string>
+    <string name="modelo_carro">Modelo do carro</string>
+    <string name="marca_carro">Marca do carro</string>
+    <string name="criar_carro">Criar carro</string>
+    <string name="nome_carro">Nome do carro</string>
+    <string name="parar">Parar</string>
     <string name="turbo">Turbo</string>
-    <string name="Break">Frear</string>
-    <string name="speedUp">Acelerar</string>
-    <string name="delete_car">Deletar carro</string>
+    <string name="frear">Frear</string>
+    <string name="acelerar">Acelerar</string>
+    <string name="deletar_carro">Deletar carro</string>
     <string name="marcha">Marcha:</string>
-    <string name="car_created_successfully">Carro criado com sucesso</string>
-    <string name="the_car_is_at_full_speed">O carro está na velocidade máxima</string>
-    <string name="create_a_car">Crie um carro</string>
-    <string name="the_car_is_stopped">O carro está parado</string>
-    <string name="warning">Aviso</string>
+    <string name="carro_criado_sucesso">Carro criado com sucesso</string>
+    <string name="carro_esta_na_velocidade_maxima">O carro está na velocidade máxima</string>
+    <string name="crie_um_carro">Crie um carro</string>
+    <string name="carro_parado">O carro está parado</string>
+    <string name="aviso">Aviso</string>
     <string name="ok">OK</string>
-    <string name="cancel">Cancelar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
