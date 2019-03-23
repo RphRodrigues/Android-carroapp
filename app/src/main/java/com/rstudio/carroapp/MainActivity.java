@@ -16,11 +16,10 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    Carro car = null;
-    Random random = new Random();
-    Integer currentImg = 0;
+    Carro carro = null;
+    Byte imgAtual = 0;
 
-    String[] carNames = {
+    String[] nomesCarros = {
             "Mercedes",
             "Zodiac",
             "Ford GT",
@@ -30,22 +29,22 @@ public class MainActivity extends AppCompatActivity {
             "Lincoln Continental"
     };
 
-    String[] carBrands = {
+    String[] marcasCarros = {
             "Mercedes-Benz",
             "Ford Motor Company",
             "Lincoln"
     };
 
-    private EditText name;
-    private EditText brand;
-    private EditText model;
-    private TextView speedometer;
+    private EditText nomeCarro;
+    private EditText marcaCarro;
+    private EditText modeloCarro;
+    private TextView velocimetro;
     private TextView marcha;
-    private Button stop;
-    private Button turbo;
-    private Button criarCarro;
-    private Button speedUp;
-    private Button brake;
+    private Button btnParar;
+    private Button btnTurbo;
+    private Button btnCriarCarro;
+    private Button btnAcelerar;
+    private Button btnFrear;
     private ImageView img;
 
     @Override
@@ -53,120 +52,120 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name = findViewById(R.id.carNameId);
-        brand = findViewById(R.id.brandId);
-        model = findViewById(R.id.modelId);
-        speedometer = findViewById(R.id.speedometerId);
-        stop = findViewById(R.id.btnStopId);
-        turbo = findViewById(R.id.btnTurboId);
-        criarCarro = findViewById(R.id.btnCriarCarro);
-        speedUp = findViewById(R.id.btnAcelerarId);
-        brake = findViewById(R.id.btnFrearId);
+        nomeCarro = findViewById(R.id.carNameId);
+        marcaCarro = findViewById(R.id.brandId);
+        modeloCarro = findViewById(R.id.modelId);
+        velocimetro = findViewById(R.id.speedometerId);
+        btnParar = findViewById(R.id.btnStopId);
+        btnTurbo = findViewById(R.id.btnTurboId);
+        btnCriarCarro = findViewById(R.id.btnCriarCarro);
+        btnAcelerar = findViewById(R.id.btnAcelerarId);
+        btnFrear = findViewById(R.id.btnFrearId);
         img = findViewById(R.id.imageId);
         marcha = findViewById(R.id.marchaId);
 
-        name.setText(carNames[0]);
-        brand.setText(carBrands[0]);
+        nomeCarro.setText(nomesCarros[0]);
+        marcaCarro.setText(marcasCarros[0]);
 
-        criarCarro.setOnClickListener(new View.OnClickListener() {
+        btnCriarCarro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (car == null) {
-                    car = new Carro();
-                    car.setName(name.getText().toString());
-                    car.setMarca(brand.getText().toString());
-                    car.setModelo(model.getText().toString());
+                if (carro == null) {
+                    carro = new Carro();
+                    carro.setName(nomeCarro.getText().toString());
+                    carro.setMarca(marcaCarro.getText().toString());
+                    carro.setModelo(modeloCarro.getText().toString());
 
-                    Toast.makeText(getBaseContext(), R.string.car_created_successfully,
+                    Toast.makeText(getBaseContext(), R.string.carro_criado_sucesso,
                             Toast.LENGTH_LONG).show();
 
-                    speedometer.append(" " + car.getVelocidade());
-                    marcha.append(" " + car.getMarcha());
-                    speedometer.setVisibility(View.VISIBLE);
+                    velocimetro.append(" " + carro.getVelocidade());
+                    marcha.append(" " + carro.getMarcha());
+                    velocimetro.setVisibility(View.VISIBLE);
                     marcha.setVisibility(View.VISIBLE);
 
-                    criarCarro.setText(R.string.delete_car);
+                    btnCriarCarro.setText(R.string.deletar_carro);
                 } else {
                     deleteCar();
                 }
             }
         });
 
-        turbo.setOnClickListener(new View.OnClickListener() {
+        btnTurbo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (car != null) {
-                    if (car.turbo()) {
-                        speedometer.setText(R.string.speedometer);
-                        speedometer.append(" " + car.getVelocidade());
+                if (carro != null) {
+                    if (carro.turbo()) {
+                        velocimetro.setText(R.string.velocimetro);
+                        velocimetro.append(" " + carro.getVelocidade());
                         marcha.setText(R.string.marcha);
-                        marcha.append(" " + car.getMarcha());
+                        marcha.append(" " + carro.getMarcha());
                     } else {
-                        Toast.makeText(getBaseContext(), R.string.the_car_is_at_full_speed,
+                        Toast.makeText(getBaseContext(), R.string.carro_esta_na_velocidade_maxima,
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getBaseContext(), R.string.create_a_car,
+                    Toast.makeText(getBaseContext(), R.string.crie_um_carro,
                             Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        stop.setOnClickListener(new View.OnClickListener() {
+        btnParar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (car != null) {
-                    if (car.stop()) {
-                        speedometer.setText(R.string.speedometer);
-                        speedometer.append(" " + car.getVelocidade());
+                if (carro != null) {
+                    if (carro.stop()) {
+                        velocimetro.setText(R.string.velocimetro);
+                        velocimetro.append(" " + carro.getVelocidade());
                         marcha.setText(R.string.marcha);
-                        marcha.append(" " + car.getMarcha());
+                        marcha.append(" " + carro.getMarcha());
                     } else {
-                        Toast.makeText(getBaseContext(), R.string.the_car_is_stopped,
+                        Toast.makeText(getBaseContext(), R.string.carro_parado,
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getBaseContext(), R.string.create_a_car,
+                    Toast.makeText(getBaseContext(), R.string.crie_um_carro,
                             Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        brake.setOnClickListener(new View.OnClickListener() {
+        btnFrear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (car != null) {
-                    if (car.brake()) {
-                        speedometer.setText(R.string.speedometer);
-                        speedometer.append(" " + car.getVelocidade());
+                if (carro != null) {
+                    if (carro.brake()) {
+                        velocimetro.setText(R.string.velocimetro);
+                        velocimetro.append(" " + carro.getVelocidade());
                         marcha.setText(R.string.marcha);
-                        marcha.append(" " + car.getMarcha());
+                        marcha.append(" " + carro.getMarcha());
                     } else {
-                        Toast.makeText(MainActivity.this, R.string.the_car_is_stopped,
+                        Toast.makeText(MainActivity.this, R.string.carro_parado,
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getBaseContext(), R.string.create_a_car,
+                    Toast.makeText(getBaseContext(), R.string.crie_um_carro,
                             Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        speedUp.setOnClickListener(new View.OnClickListener() {
+        btnAcelerar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (car != null) {
-                    if (car.speedUp()) {
-                        speedometer.setText(R.string.speedometer);
-                        speedometer.append(" " + car.getVelocidade());
+                if (carro != null) {
+                    if (carro.speedUp()) {
+                        velocimetro.setText(R.string.velocimetro);
+                        velocimetro.append(" " + carro.getVelocidade());
                         marcha.setText(R.string.marcha);
-                        marcha.append(" " + car.getMarcha());
+                        marcha.append(" " + carro.getMarcha());
                     } else {
-                        Toast.makeText(getBaseContext(), R.string.the_car_is_at_full_speed,
+                        Toast.makeText(getBaseContext(), R.string.carro_esta_na_velocidade_maxima,
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getBaseContext(), R.string.create_a_car,
+                    Toast.makeText(getBaseContext(), R.string.crie_um_carro,
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -175,10 +174,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void deleteCar() {
         new AlertDialog.Builder(MainActivity.this)
-                .setTitle(R.string.warning)
+                .setTitle(R.string.aviso)
                 .setIcon(R.mipmap.ic_warning)
-                .setMessage("Deseja excluir o carro " + car.getName())
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                .setMessage("Deseja excluir o carro " + carro.getName() + "?")
+                .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         return;
@@ -187,11 +186,12 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        car = null;
-                        speedometer.setText(R.string.speedometer);
+                        carro = null;
+                        velocimetro.setText(R.string.velocimetro);
                         marcha.setText(R.string.marcha);
-                        criarCarro.setText(R.string.Create_car);
-                        speedometer.setVisibility(View.INVISIBLE);
+                        btnCriarCarro.setText(R.string.criar_carro);
+                        velocimetro.setVisibility(View.INVISIBLE);
+                        marcha.setVisibility(View.INVISIBLE);
                     }
                 })
                 .create()
@@ -200,57 +200,59 @@ public class MainActivity extends AppCompatActivity {
 
     public void imgClick(View view) {
 
+        byte totalImg = 7;
         Drawable drawable;
-        int nextImg = random.nextInt(7);
+        Random random = new Random();
+        int proximaImg = random.nextInt(totalImg);
 
-        if (currentImg == nextImg) {
+        if (imgAtual == proximaImg) {
             do {
-                nextImg = random.nextInt(4);
-            } while (currentImg == nextImg);
+                proximaImg = random.nextInt(totalImg);
+            } while (imgAtual == proximaImg);
         }
-        currentImg = nextImg;
+        imgAtual = (byte) proximaImg;
 
-        if (nextImg == 0) {
+        if (proximaImg == 0) {
             drawable = getResources().getDrawable(R.drawable.mercedes);
-        } else if (nextImg == 1) {
+        } else if (proximaImg == 1) {
             drawable = getResources().getDrawable(R.drawable.ford_zodiac);
-        } else if (nextImg == 2) {
+        } else if (proximaImg == 2) {
             drawable = getResources().getDrawable(R.drawable.ford_gt);
-        } else if (nextImg == 3) {
+        } else if (proximaImg == 3) {
             drawable = getResources().getDrawable(R.drawable.ford_corsair_with_boat);
-        } else if (nextImg == 4) {
+        } else if (proximaImg == 4) {
             drawable = getResources().getDrawable(R.drawable.ford_mustang_fastback);
-        } else if (nextImg == 5) {
+        } else if (proximaImg == 5) {
             drawable = getResources().getDrawable(R.drawable.mercury_cougar);
         } else {
             drawable = getResources().getDrawable(R.drawable.lincoln_continental);
         }
         img.setImageDrawable(drawable);
-        setCarDetails(nextImg);
+        setCarDetails(proximaImg);
     }
 
     private void setCarDetails(int pos) {
         if (pos == 0) {
-            name.setText(carNames[0]);
-            brand.setText(carBrands[0]);
+            nomeCarro.setText(nomesCarros[0]);
+            marcaCarro.setText(marcasCarros[0]);
         } else if (pos == 1) {
-            name.setText(carNames[1]);
-            brand.setText(carBrands[1]);
+            nomeCarro.setText(nomesCarros[1]);
+            marcaCarro.setText(marcasCarros[1]);
         } else if (pos == 2) {
-            name.setText(carNames[2]);
-            brand.setText(carBrands[1]);
+            nomeCarro.setText(nomesCarros[2]);
+            marcaCarro.setText(marcasCarros[1]);
         } else if (pos == 3) {
-            name.setText(carNames[3]);
-            brand.setText(carBrands[1]);
+            nomeCarro.setText(nomesCarros[3]);
+            marcaCarro.setText(marcasCarros[1]);
         } else if (pos == 4) {
-            name.setText(carNames[4]);
-            brand.setText(carBrands[1]);
+            nomeCarro.setText(nomesCarros[4]);
+            marcaCarro.setText(marcasCarros[1]);
         } else if (pos == 5) {
-            name.setText(carNames[5]);
-            brand.setText(carBrands[1]);
+            nomeCarro.setText(nomesCarros[5]);
+            marcaCarro.setText(marcasCarros[1]);
         } else {
-            name.setText(carNames[6]);
-            brand.setText(carBrands[2]);
+            nomeCarro.setText(nomesCarros[6]);
+            marcaCarro.setText(marcasCarros[2]);
         }
     }
 }

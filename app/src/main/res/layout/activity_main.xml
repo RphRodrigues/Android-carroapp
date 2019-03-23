@@ -11,7 +11,7 @@
         android:id="@+id/carNameId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/Car_name"
+        android:hint="@string/nome_carro"
         android:inputType="text" />
 
     <EditText
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="3sp"
-        android:hint="@string/Car_brand"
+        android:hint="@string/marca_carro"
         android:inputType="text" />
 
     <EditText
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="3sp"
-        android:hint="@string/Car_model"
+        android:hint="@string/modelo_carro"
         android:inputType="text" />
 
     <ImageView
@@ -42,28 +42,28 @@
         android:id="@+id/btnCriarCarro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Create_car" />
+        android:text="@string/criar_carro" />
 
     <Button
         android:id="@+id/btnAcelerarId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8sp"
-        android:text="@string/speedUp" />
+        android:text="@string/acelerar" />
 
     <Button
         android:id="@+id/btnFrearId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8sp"
-        android:text="@string/Break" />
+        android:text="@string/frear" />
 
     <Button
         android:id="@+id/btnStopId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8sp"
-        android:text="@string/stop" />
+        android:text="@string/parar" />
 
     <Button
         android:id="@+id/btnTurboId"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
-            android:text="@string/speedometer"
+            android:text="@string/velocimetro"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
