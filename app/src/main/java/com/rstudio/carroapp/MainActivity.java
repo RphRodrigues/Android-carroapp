@@ -1,6 +1,7 @@
 package com.rstudio.carroapp;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -168,6 +169,14 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), R.string.crie_um_carro,
                             Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        img.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                startActivity(new Intent(MainActivity.this, Main2Activity.class));
+                return false;
             }
         });
     }
