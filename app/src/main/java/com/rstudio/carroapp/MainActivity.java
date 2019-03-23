@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAcelerar;
     private Button btnFrear;
     private ImageView img;
+    private EditText ano;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         btnFrear = findViewById(R.id.btnFrearId);
         img = findViewById(R.id.imageId);
         marcha = findViewById(R.id.marchaId);
+        ano = findViewById(R.id.anoId);
 
         nomeCarro.setText(nomesCarros[0]);
         marcaCarro.setText(marcasCarros[0]);
@@ -76,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
                     carro.setName(nomeCarro.getText().toString());
                     carro.setMarca(marcaCarro.getText().toString());
                     carro.setModelo(modeloCarro.getText().toString());
+
+                    if (!ano.getText().toString().isEmpty()) {
+                        carro.setAno(Short.parseShort(ano.getText().toString()));
+                    }
 
                     Toast.makeText(getBaseContext(), R.string.carro_criado_sucesso,
                             Toast.LENGTH_LONG).show();
@@ -186,12 +192,7 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle(R.string.aviso)
                 .setIcon(R.mipmap.ic_warning)
                 .setMessage("Deseja excluir o carro " + carro.getName() + "?")
-                .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        return;
-                    }
-                })
+                .setNegativeButton(R.string.cancelar, null)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
